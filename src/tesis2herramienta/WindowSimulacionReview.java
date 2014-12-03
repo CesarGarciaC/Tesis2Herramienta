@@ -47,12 +47,12 @@ public class WindowSimulacionReview extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jTextField28 = new javax.swing.JTextField();
         txtCitasSinEntregar = new javax.swing.JTextField();
-        jTextField30 = new javax.swing.JTextField();
+        txtNumSem = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField25 = new javax.swing.JTextField();
+        txtNumEsp = new javax.swing.JTextField();
         txtCitasEntregadas = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -105,8 +105,8 @@ public class WindowSimulacionReview extends javax.swing.JFrame {
         txtCitasSinEntregar.setEditable(false);
         txtCitasSinEntregar.setText("300");
 
-        jTextField30.setEditable(false);
-        jTextField30.setText("300");
+        txtNumSem.setEditable(false);
+        txtNumSem.setText("300");
 
         jLabel20.setText("Número de semanas de trabajo");
 
@@ -116,11 +116,11 @@ public class WindowSimulacionReview extends javax.swing.JFrame {
 
         jLabel8.setText("Número de especialidades");
 
-        jTextField25.setEditable(false);
-        jTextField25.setText("300");
-        jTextField25.addActionListener(new java.awt.event.ActionListener() {
+        txtNumEsp.setEditable(false);
+        txtNumEsp.setText("300");
+        txtNumEsp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField25ActionPerformed(evt);
+                txtNumEspActionPerformed(evt);
             }
         });
 
@@ -426,7 +426,7 @@ public class WindowSimulacionReview extends javax.swing.JFrame {
                                     .addComponent(jLabel20))
                                 .addGap(23, 23, 23)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtNumSem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtCitasSinEntregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -439,7 +439,7 @@ public class WindowSimulacionReview extends javax.swing.JFrame {
                             .addComponent(jLabel8))
                         .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNumEsp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPacientesAtendidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtCitasEntregadas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
@@ -476,9 +476,9 @@ public class WindowSimulacionReview extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNumEsp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel20)
-                    .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNumSem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -505,9 +505,9 @@ public class WindowSimulacionReview extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField25ActionPerformed
+    private void txtNumEspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumEspActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField25ActionPerformed
+    }//GEN-LAST:event_txtNumEspActionPerformed
 
     public void mostrarResultados(Grasp g, Voraz v,VariablesGenericas vg)
     {
@@ -515,9 +515,12 @@ public class WindowSimulacionReview extends javax.swing.JFrame {
         txtCitasEntregadas.setText(v.pacientesAtendidos+"");
         txtCitasSinEntregar.setText((vg.numeroTotalCitas-v.pacientesAtendidos)+"");
         txtPacientesAtendidos.setText(v.pacientesAtendidos+"");
+        txtNumEsp.setText(ConfigAlgoritmo.N_ESPECIALIDADES+"");
+        txtNumSem.setText(ConfigAlgoritmo.N_SEMANAS_TRABAJO+"");
         
         //Resultados Voraz
-        
+        if (v!=null)
+        {
         DefaultTableModel modeloVoraz=(DefaultTableModel)tablaResultadoVoraz.getModel();
         int [][] _MA_Voraz=(int[][])v.listaSol.get(0);
         int [][] _MO_Voraz=(int[][])v.listaSol.get(1);
@@ -526,6 +529,7 @@ public class WindowSimulacionReview extends javax.swing.JFrame {
            for (int p=0;p<ConfigAlgoritmo.N_PACIENTES;p++)
            {
                int indexMedicoAsignado=_listaPacientesxPosMedico_Voraz[p];
+               System.out.println(p+"-"+indexMedicoAsignado);
                if (_MA_Voraz[p][indexMedicoAsignado]!=0)
                {
                    Paciente px=v.listaPacientes.get(p);
@@ -546,19 +550,21 @@ public class WindowSimulacionReview extends javax.swing.JFrame {
                    modeloVoraz.addRow(filaVoraz);
                }
            }
-          
+         
          tablaResultadoVoraz.setModel(modeloVoraz);
          System.out.println("***************** "+v.fObjetivo);
          txtFuncionObjetivoVoraz.setText((v.fObjetivo/1000)+"");
          TableRowSorter<TableModel> x=new TableRowSorter<TableModel>(modeloVoraz);
          tablaResultadoVoraz.setRowSorter(x);
-           
+        }
         //Resultados Grasp
         
+        if (g!=null)
+        {
         DefaultTableModel modeloGrasp=(DefaultTableModel)tablaResultadoGRASP.getModel();
         int [][] _MA_Grasp=(int[][])g.listaSol.get(0);
         int [][] _MO_Grasp=(int[][])g.listaSol.get(1);
-        int [] _listaPacientesxPosMedico_Grasp=v.listaPacientesxPosMedicos;
+        int [] _listaPacientesxPosMedico_Grasp=g.listaPacientesxPosMedicos;
         
            for (int p=0;p<ConfigAlgoritmo.N_PACIENTES;p++)
            {
@@ -587,7 +593,7 @@ public class WindowSimulacionReview extends javax.swing.JFrame {
          tablaResultadoGRASP.setModel(modeloGrasp);
          TableRowSorter<TableModel> y=new TableRowSorter<TableModel>(modeloGrasp);
          tablaResultadoGRASP.setRowSorter(y);
-         
+        }
          txtFuncionObjetivoGrasp.setText((g.fObjetivo/1000)+"");
          
     }
@@ -668,15 +674,15 @@ public class WindowSimulacionReview extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField21;
     private javax.swing.JTextField jTextField22;
     private javax.swing.JTextField jTextField23;
-    private javax.swing.JTextField jTextField25;
     private javax.swing.JTextField jTextField28;
-    private javax.swing.JTextField jTextField30;
     private javax.swing.JTable tablaResultadoGRASP;
     private javax.swing.JTable tablaResultadoVoraz;
     private javax.swing.JTextField txtCitasEntregadas;
     private javax.swing.JTextField txtCitasSinEntregar;
     private javax.swing.JTextField txtFuncionObjetivoGrasp;
     private javax.swing.JTextField txtFuncionObjetivoVoraz;
+    private javax.swing.JTextField txtNumEsp;
+    private javax.swing.JTextField txtNumSem;
     private javax.swing.JTextField txtPacientesAtendidos;
     // End of variables declaration//GEN-END:variables
 }

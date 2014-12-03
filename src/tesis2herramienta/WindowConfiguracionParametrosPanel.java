@@ -167,14 +167,14 @@ public class WindowConfiguracionParametrosPanel extends javax.swing.JPanel {
             }
         });
 
-        txtConstanteMedico.setText("0.5");
+        txtConstanteMedico.setText("0.260");
         txtConstanteMedico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtConstanteMedicoActionPerformed(evt);
             }
         });
 
-        txtConstantePaciente.setText("0.5");
+        txtConstantePaciente.setText("0.203");
         txtConstantePaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtConstantePacienteActionPerformed(evt);
@@ -185,7 +185,12 @@ public class WindowConfiguracionParametrosPanel extends javax.swing.JPanel {
 
         txtFactorCargaEnf.setText("1");
 
-        txtIteraciones.setText("1");
+        txtIteraciones.setText("6500");
+        txtIteraciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIteracionesActionPerformed(evt);
+            }
+        });
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel13.setText("Función Solución");
@@ -394,6 +399,10 @@ public class WindowConfiguracionParametrosPanel extends javax.swing.JPanel {
         
         JOptionPane.showMessageDialog(this, "Cambios guardados","Confirmación",JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void txtIteracionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIteracionesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIteracionesActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

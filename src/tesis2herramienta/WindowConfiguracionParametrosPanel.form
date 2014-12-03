@@ -406,7 +406,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtConstanteMedico">
       <Properties>
-        <Property name="text" type="java.lang.String" value="0.5"/>
+        <Property name="text" type="java.lang.String" value="0.260"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtConstanteMedicoActionPerformed"/>
@@ -414,7 +414,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtConstantePaciente">
       <Properties>
-        <Property name="text" type="java.lang.String" value="0.5"/>
+        <Property name="text" type="java.lang.String" value="0.203"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtConstantePacienteActionPerformed"/>
@@ -440,8 +440,11 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtIteraciones">
       <Properties>
-        <Property name="text" type="java.lang.String" value="1"/>
+        <Property name="text" type="java.lang.String" value="6500"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIteracionesActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel13">
       <Properties>
